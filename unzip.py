@@ -1,6 +1,6 @@
 import os, pdb, glob
 
-def unzip(filename):
+def unzip( filename ):
     """
     Unzips filename into a folder with name given by the
     filename root and then moves the zipped file into
