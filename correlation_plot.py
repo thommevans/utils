@@ -1,7 +1,7 @@
 import numpy as np
 import pdb
+import matplotlib
 import matplotlib.pyplot as plt
-import matplotlib.mpl as mpl
 import matplotlib.ticker
 
 def correlation_plot(vectors, labels=None, figno=1, nbins_hist=50, showcolorbar=True, label_fontsize=12 ):
@@ -24,7 +24,7 @@ def correlation_plot(vectors, labels=None, figno=1, nbins_hist=50, showcolorbar=
     corrcoefs = np.empty([nsets,nsets])
     side_buffer = 0.15
     boxwidth = (1.-1.1*side_buffer)/nsets
-    corr_cmap = mpl.cm.Reds
+    corr_cmap = matplotlib.cm.Reds
     corrcolormap = plt.cm.ScalarMappable(cmap=corr_cmap)
     corrcolormap.set_clim(vmin=0, vmax=1)
     for i in range(nsets):
@@ -76,8 +76,8 @@ def correlation_plot(vectors, labels=None, figno=1, nbins_hist=50, showcolorbar=
     cb_width = 0.25*boxwidth
     cb_height = 0.30
     cb_axis = fig.add_axes([1-side_buffer, 0.5, cb_width, cb_height])
-    cb_norm = mpl.colors.Normalize(vmin=0, vmax=1)
-    cb = mpl.colorbar.ColorbarBase(cb_axis, cmap=corr_cmap, norm=cb_norm, orientation='vertical')
+    cb_norm = matplotlib.colors.Normalize(vmin=0, vmax=1)
+    cb = matplotlib.colorbar.ColorbarBase(cb_axis, cmap=corr_cmap, norm=cb_norm, orientation='vertical')
     cb.set_ticks([0.0,0.5,1.0])
     return corrcoefs
 
