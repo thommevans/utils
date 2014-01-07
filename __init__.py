@@ -16,3 +16,4 @@ from gregcal2jd import *
 from rebin1d import *
 from rebin2d import *
 from radec import *
+from parang import *
