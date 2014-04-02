@@ -10,6 +10,7 @@ from interp_1d_series import *
 from integrate_bandpass import *
 from bin_1d import *
 from bin_2d import *
+from bin_3d import *
 from grid_2d import *
 from autocorrelation import *
 from gregcal2jd import *
