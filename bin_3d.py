@@ -36,11 +36,13 @@ def bin_3d( xp, yp, zp, f ):
     f = f.flatten()
     nf = len( f )
 
-    print 'Binning {0} values on a {1} x {2} x {3} grid'.format( nf, nx, ny, nz )
-    print 'Make sure these numbers are equal pairs:'
-    print nx, len(xedges)-1
-    print ny, len(yedges)-1
-    print nz, len(zedges)-1
+    print '\nBinning {0} values on a {1} x {2} x {3} grid'.format( nf, nx, ny, nz )
+    print 'The following pairs of numbers are the number of bins'
+    print 'requested and the number being done for each axis:'
+    print 'axis1 --> {0}, {1}'.format( nx, len(xedges)-1 )
+    print 'axis2 --> {0}, {1}'.format( ny, len(yedges)-1 )
+    print 'axis3 --> {0}, {1}'.format( nz, len(zedges)-1 )
+    print 'Each pair should therefore be two equal numbers.\n'
     fb = np.zeros( [ nx, ny, nz ] )
     npb = np.zeros( [ nx, ny, nz ] )
     xcents = np.zeros( [ nx, ny, nz ] )
