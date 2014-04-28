@@ -1,6 +1,10 @@
 import numpy as np
 import pdb
 
+# TODO: This could be sped up by using the numpy histogramdd function
+# to first identify the cells that actually contain data points, then
+# only bin the f variable in that subset.
+
 def bin_3d( xp, yp, zp, f ):
     """
     Bin a 3D data series.
