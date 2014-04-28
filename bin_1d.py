@@ -1,11 +1,17 @@
 import numpy as np
-import pdb
+import pdb, warnings
 
 def bin_1d( x, y, nbins=10, shift_left=0.0, shift_right=0.0 ):
     """
     shift_left and shift_right are optional arguments that allow you to shift the
     bins either to the left or right by a specified fraction of a bin width.
     """
+
+    x = x.flatten()
+    y = y.flatten()
+    if len( x )!=len( y ):
+        raise ValueError( 'vector dimensions do not match' )
+    
     binw = (x.max()-x.min())/float(nbins)
     if nbins>1:
         # Have half-bin overlap at start:

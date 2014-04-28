@@ -1,5 +1,5 @@
 import numpy as np
-import pdb
+import pdb, warnings
 
 # TODO: This could be sped up by using the numpy histogramdd function
 # to first identify the cells that actually contain data points, then
@@ -25,6 +25,15 @@ def bin_3d( xp, yp, zp, f ):
     z = zp[0]
     dz = zp[1]
 
+    x = x.flatten()
+    y = y.flatten()
+    z = z.flatten()
+    f = f.flatten()
+    nf = len( f )
+    if ( len( x )==nf )*( len( y )==nf )*( len( z )==nf )==False:
+        raise ValueError( 'vector dimensions do not match' )
+        
+    
     xr = x.max() - x.min()
     yr = y.max() - y.min()
     zr = z.max() - z.min()

@@ -1,10 +1,19 @@
 import numpy as np
-import pdb
+import pdb, warnings
 
 def bin_2d( xcoords, ycoords, zsignal, nx=30, ny=30 ):
     """
     Bin a 2D data series.
     """
+
+    xcoords = xcoords.flatten()
+    ycoords = ycoords.flatten()
+    zsignal = zsignal.flatten()
+    nz = len( zsignal )
+    if ( len( xcoords )==nz )*( len( ycoords )==nz )==False:
+        raise ValueError( 'vector dimensions do not match' )
+
+    
     pt_densities, yedges, xedges = np.histogram2d( ycoords, xcoords, bins=( ny, nx ) )
     dx = np.median( np.diff( xedges ) )
     dy = np.median( np.diff( yedges ) )
