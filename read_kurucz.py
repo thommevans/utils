@@ -3,6 +3,11 @@ import matplotlib.pyplot as plt
 import os, sys, pdb
 
 def stellar_spectrum( model_filepath='', teff=None, logg=None, new_grid=False ):
+    """
+    Given a Kurucz stellar model, returns the spectrum for the appropriate teff 
+    and logg. Note that the model file should be one of the form e.g. fp01k2.pck.
+    """
+
 
      # Row dimensions of the input file:
     if new_grid==False:
