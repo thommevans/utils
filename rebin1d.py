@@ -12,7 +12,7 @@ def rebin1d( a, binning_factor ):
     Inputs
     ------
     a : 2D array
-    binning_factors : tuple of int giving resolution decreas
+    binning_factors : tuple of int giving resolution decrease
     for each axis.
 
  

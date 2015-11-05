@@ -37,4 +37,5 @@ def bin_1d( x, y, nbins=10, shift_left=0.0, shift_right=0.0 ):
             nperbin[j] = len(y[l])
             ybin[j] = np.mean(y[l])
             ybinstdvs[j] = np.std(y[l])
+
     return np.array(xbin), np.array(ybin), np.array(ybinstdvs), np.array(nperbin)
