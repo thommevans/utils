@@ -15,7 +15,7 @@ def bin_1d( x, y, nbins=10, shift_left=0.0, shift_right=0.0 ):
     binw = (x.max()-x.min())/float(nbins)
     if nbins>1:
         # Have half-bin overlap at start:
-        wmin = x.min()-binw-binw*shift_left+binw*shift_right
+        wmin = x.min()-binw/2.-binw*shift_left+binw*shift_right
     elif nbins==1:
         wmin = x.min()
     else:
@@ -37,5 +37,4 @@ def bin_1d( x, y, nbins=10, shift_left=0.0, shift_right=0.0 ):
             nperbin[j] = len(y[l])
             ybin[j] = np.mean(y[l])
             ybinstdvs[j] = np.std(y[l])
-
     return np.array(xbin), np.array(ybin), np.array(ybinstdvs), np.array(nperbin)
