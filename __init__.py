@@ -20,4 +20,6 @@ from radec import *
 from parang import *
 from mpfit import *
 from cartesian_product import *
-import triangle
+import corner
+from logp_mvnormal_white import *
+
