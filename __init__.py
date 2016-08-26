@@ -22,4 +22,4 @@ from mpfit import *
 from cartesian_product import *
 import corner
 from logp_mvnormal_white import *
-from calc_hatm import *
+from planet import *
