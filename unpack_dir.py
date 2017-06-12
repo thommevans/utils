@@ -1,10 +1,11 @@
-from unzip import unzip
+from __future__ import print_function
+#from unzip import unzip
 import os, pdb, glob
 
 def unpack_dir( extns=[ 'tgz', 'tar' ] ):
     """
     Unpacks all the archives in the current directory with
-    the extensions listed in the keyoword argument list.
+    the extensions listed in the keyword argument list.
     This is routine currently fairly experimental and I tend
     to use it on an ad hoc basis.
     """
@@ -14,7 +15,7 @@ def unpack_dir( extns=[ 'tgz', 'tar' ] ):
         extn = extns[i]
         archives = archives+glob.glob('*.'+extn)
     n_archives = len(archives)
-    print 'Now unpacking %i archives:' % n_archives
+    print( 'Now unpacking %i archives:' % n_archives )
     finished_dir = 'already_unpacked'
     try:
         os.mkdir( finished_dir )
@@ -22,7 +23,7 @@ def unpack_dir( extns=[ 'tgz', 'tar' ] ):
         pass
     for i in range(len(archives)):
         current = i+1
-        print '\n   currently unpacking %i of %i...\n' % (current,n_archives)
+        print( '\n   currently unpacking %i of %i...\n' % (current,n_archives) )
         ix = archives[i].rfind( '.' )
         extn_i = archives[i][ix+1:]
         if ( extn_i=='tgz' )+( extn_i=='tar' ):
@@ -32,9 +33,9 @@ def unpack_dir( extns=[ 'tgz', 'tar' ] ):
             os.system( 'gunzip {0} -c > {1}'.format( archives[i], uncompressed ) )
             os.system( 'mv {0} {1}'.format( archives[i], finished_dir ) )
         else:
-            print 'file extension {0} not recognised'.format( extn_i )
+            print( 'file extension {0} not recognised'.format( extn_i ) )
             pdb.set_trace()
         #unzip(archives[i])
-    print 'Finished.\n'
+    print( 'Finished.\n' )
     return None
 

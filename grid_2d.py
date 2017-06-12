@@ -1,3 +1,4 @@
+from __future__ import print_function
 import os, pdb, sys
 import numpy as np
 
@@ -22,9 +23,9 @@ def grid_2d( data2d, requested_bin_spacing, npts_min ):
     be used in constructing the 2D Gaussian basis functions in that
     case.
     """
-    print 'NEED TO DOUBLE CHECK THIS IS DOING THE CORRECT THING: \n \
-           previously the way i had it set up with vbr_script it was \n \
-           not setting the basis widths properly!!!!!'
+    print( 'NEED TO DOUBLE CHECK THIS IS DOING THE CORRECT THING: \n \
+            previously the way i had it set up with vbr_script it was \n \
+            not setting the basis widths properly!!!!!' )
     # Get the range of data along the first axis:
     data_x = data2d[:,0]
     lower_x = data_x.min()

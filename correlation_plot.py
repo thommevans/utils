@@ -30,20 +30,20 @@ def correlation_plot(vectors, labels=None, figno=1, nbins_hist=50, showcolorbar=
     for i in range(nsets):
         data1 = vectors[:,i]
 	# Do the histogram along the diagonal:
-	x_lowercorner = side_buffer+i*boxwidth
-	y_lowercorner = side_buffer+nsets*boxwidth-(i+1)*boxwidth
-	ax_x0 = plt.axes([x_lowercorner, y_lowercorner, boxwidth, boxwidth])
+        x_lowercorner = side_buffer+i*boxwidth
+        y_lowercorner = side_buffer+nsets*boxwidth-(i+1)*boxwidth
+        ax_x0 = plt.axes([x_lowercorner, y_lowercorner, boxwidth, boxwidth])
         ax_x0.xaxis.set_major_formatter(matplotlib.ticker.OldScalarFormatter())
         ax_x0.yaxis.set_major_formatter(matplotlib.ticker.OldScalarFormatter())
-	plt.setp(ax_x0.xaxis.get_ticklabels(), visible = False)
-	plt.setp(ax_x0.yaxis.get_ticklabels(), visible = False)
-	plt.hist(data1, bins=nbins_hist)
+        plt.setp(ax_x0.xaxis.get_ticklabels(), visible = False)
+        plt.setp(ax_x0.yaxis.get_ticklabels(), visible = False)
+        plt.hist(data1, bins=nbins_hist)
         ax_x0.tick_params(axis='x', tick2On=False)
         ax_x0.tick_params(axis='y', size=0)        
-	if ((labels!=None)*(i==0)):
-	    plt.ylabel(labels[i], fontsize=label_fontsize)
-	if ((labels!=None)*(i==nsets-1)):
-	    plt.xlabel(labels[i], fontsize=label_fontsize)
+        if ((labels!=None)*(i==0)):
+            plt.ylabel(labels[i], fontsize=label_fontsize)
+        if ((labels!=None)*(i==nsets-1)):
+            plt.xlabel(labels[i], fontsize=label_fontsize)
 	# Do the off-diagonal correlation plots:
         for j in range(i+1,nsets):
             data2 = vectors[:,j]
@@ -60,18 +60,18 @@ def correlation_plot(vectors, labels=None, figno=1, nbins_hist=50, showcolorbar=
             x_lowercorner = side_buffer+i*boxwidth
             y_lowercorner = side_buffer+nsets*boxwidth-(j+1)*boxwidth
 	    # Get the color to indicate the magnitude of correlation:
-	    axisbg = corrcolormap.to_rgba(abs(correlation))
+            axisbg = corrcolormap.to_rgba(abs(correlation))
             ax = plt.axes([x_lowercorner, y_lowercorner, boxwidth, boxwidth], axisbg=axisbg, sharex=ax_x0)
             ax.xaxis.set_major_formatter(matplotlib.ticker.OldScalarFormatter())
             ax.yaxis.set_major_formatter(matplotlib.ticker.OldScalarFormatter())
             ax.tick_params( labelsize=20 )
-	    plt.setp(ax.xaxis.get_ticklabels(), visible = False)
-	    plt.setp(ax.yaxis.get_ticklabels(), visible = False)
+            plt.setp(ax.xaxis.get_ticklabels(), visible = False)
+            plt.setp(ax.yaxis.get_ticklabels(), visible = False)
             plt.plot(data1[random_subset],data2[random_subset],'.k')
-	    if ((labels!=None)*(i==0)):
-		plt.ylabel(labels[j], fontsize=label_fontsize )
-	    if ((labels!=None)*(j==nsets-1)):
-		plt.xlabel(labels[i], fontsize=label_fontsize)
+            if ((labels!=None)*(i==0)):
+                plt.ylabel(labels[j], fontsize=label_fontsize )
+            if ((labels!=None)*(j==nsets-1)):
+                plt.xlabel(labels[i], fontsize=label_fontsize)
     # Lastly, add a color bar:
     cb_width = 0.25*boxwidth
     cb_height = 0.30

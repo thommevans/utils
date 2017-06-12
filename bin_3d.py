@@ -1,3 +1,4 @@
+from __future__ import print_function
 import numpy as np
 import pdb, warnings
 
@@ -49,20 +50,20 @@ def bin_3d( xp, yp, zp, f ):
     f = f.flatten()
     nf = len( f )
 
-    print '\nBinning {0} values on a {1} x {2} x {3} grid'.format( nf, nx, ny, nz )
-    print 'The following pairs of numbers are the number of bins'
-    print 'requested and the number being done for each axis:'
-    print 'axis1 --> {0}, {1}'.format( nx, len(xedges)-1 )
-    print 'axis2 --> {0}, {1}'.format( ny, len(yedges)-1 )
-    print 'axis3 --> {0}, {1}'.format( nz, len(zedges)-1 )
-    print 'Each pair should therefore be two equal numbers.\n'
+    print( '\nBinning {0} values on a {1} x {2} x {3} grid'.format( nf, nx, ny, nz ) )
+    print( 'The following pairs of numbers are the number of bins' )
+    print( 'requested and the number being done for each axis:' )
+    print( 'axis1 --> {0}, {1}'.format( nx, len(xedges)-1 ) )
+    print( 'axis2 --> {0}, {1}'.format( ny, len(yedges)-1 ) )
+    print( 'axis3 --> {0}, {1}'.format( nz, len(zedges)-1 ) )
+    print( 'Each pair should therefore be two equal numbers.\n' )
     fb = np.zeros( [ nx, ny, nz ] )
     npb = np.zeros( [ nx, ny, nz ] )
     xcents = np.zeros( [ nx, ny, nz ] )
     ycents = np.zeros( [ nx, ny, nz ] )
     zcents = np.zeros( [ nx, ny, nz ] )
     for i in range( nx ):
-        print i+1, nx
+        print( i+1, nx )
         ixs_x = ( x>xedges[i] )*( x<=xedges[i+1] )
         xcent_i = 0.5*( xedges[i]+xedges[i+1] )
         if ixs_x.max()==False:
