@@ -1,5 +1,6 @@
 import scipy
 
+# Units in SI, i.e. not cgs
 RSUN = 6.955e8
 MSUN = 1.9889e30
 MJUP = 1.8986e27

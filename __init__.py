@@ -23,3 +23,5 @@ from utils.cartesian_product import *
 import utils.corner
 from utils.logp_mvnormal_white import *
 from utils.planet import *
+from utils.corner import corner
+from utils.rescale_trspec import rescale_trspec
