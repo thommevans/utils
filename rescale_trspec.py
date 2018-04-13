@@ -3,6 +3,8 @@ import numpy as np
 def rescale_trspec( Rp1spec, pars1, pars2 ):
     """
 
+    Taken from Equation 1 of Lecavelier des Etangs et al (2008).
+
     'Rp1spec' is the input transmission spectrum expressed
     as planet radius in metres.
 
@@ -22,9 +24,8 @@ def rescale_trspec( Rp1spec, pars1, pars2 ):
     H1 = ( kboltz*T1 )/( mu1*g1 )
     H2 = ( kboltz*T2 )/( mu2*g2 )
 
-    z1 = ( Rp1spec-Rbase1 )/H1    
-    z2 = H2*( z1 - 0.5*np.log( ( Rbase1*mu2*g2*T2 )/( Rbase2*mu1*g1*T1 ) ) )
-    
+    z1 = Rp1spec-Rbase1
+    z2 = H2*( z1/H1 - 0.5*np.log( ( Rbase1*mu2*g2*T2 )/( Rbase2*mu1*g1*T1 ) ) )
     Rp2spec = Rbase2 + z2
 
     return Rp2spec
